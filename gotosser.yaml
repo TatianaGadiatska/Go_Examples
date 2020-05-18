@@ -1,0 +1,26 @@
+enable_http: true
+listen: 0.0.0.0:8899
+max_scan_threads: 4
+max_copy_threads: 4
+rescaninterval: 5
+loglevel: DEBUG
+
+excludemasks:
+  - '*.tmp'
+  - 'thumbs.db'
+
+scangroups:
+  - src_dirs:
+      - src1\
+    enabled: true
+    create_src: true
+    excludemasks:
+      - '*.tmp'
+      - 'thumbs.db'
+    rules:
+      0:
+        masks:
+          - '*.*'
+        dst_dir: dst1_1\
+        ifexists: replace
+        mode: move
